@@ -387,7 +387,11 @@
   </footer>
 
   <script>
-    lucide.createIcons();
+    try {
+      lucide.createIcons();
+    } catch (iconError) {
+      console.error('Falha ao carregar ícones Lucide:', iconError);
+    }
 
     const reveal = () => {
       document.querySelectorAll(".reveal").forEach(el => {
@@ -410,7 +414,12 @@
       successMsg.classList.add('hidden');
       errorMsg.classList.add('hidden');
 
-      const captchaResponse = grecaptcha.getResponse();
+      let captchaResponse = null;
+      try {
+        captchaResponse = grecaptcha.getResponse();
+      } catch (captchaError) {
+        console.error('reCAPTCHA indisponível:', captchaError);
+      }
 
       if (!captchaResponse) {
         errorMsg.textContent = 'Por favor, confirme que você não é um robô antes de enviar.';
@@ -433,7 +442,11 @@
 
         if (response.ok) {
           contactForm.reset();
-          grecaptcha.reset();
+          try {
+            grecaptcha.reset();
+          } catch (captchaError) {
+            console.error('reCAPTCHA indisponível:', captchaError);
+          }
           successMsg.classList.remove('hidden');
         } else {
           errorMsg.textContent = 'Algo deu errado no envio. Tente novamente.';
