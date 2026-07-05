@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Confere Aê — Controle total da sua compra no supermercado</title>
+  <meta name="description" content="Controle seus gastos em tempo real no supermercado. O Confere Aê mostra o total da compra antes do caixa. Grátis, offline e sem cadastro." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Confere Aê — Sua compra no controle" />
+  <meta property="og:description" content="Gerencie sua compra no supermercado em tempo real, sem cadastro e sem internet." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://seusite.com/og-image.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10b981',
+            promo: '#fbbf24',
+            soft: '#D4F9E4'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  
+    .hero-gradient {
+      background: radial-gradient(circle at top right, #D4F9E4 0%, #ffffff 40%);
+    }
+  
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+  
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    .app-screen {
+      background-color: #f8fafc;
+    }
+  
+    .app-header {
+      background-color: #10b981;
+      padding: 40px 20px 20px 20px;
+    }
+  
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    }
+
+    /* Custom reCAPTCHA centering if needed */
+    .g-recaptcha {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Header / Nav -->
+  <header class="fixed top-0 w-full z-50 glass">
+    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+          <i data-lucide="shopping-cart" class="text-white w-6 h-6"></i>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-slate-800">Confere <span class="text-primary">Aê</span></span>
+      </div>
+  
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#funcionalidades"
+          class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Funcionalidades</a>
+        <a href="#como-funciona" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Como
+          funciona</a>
+        <a href="#faq"
+          class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Perguntas frequentes</a>
+        <a href="#suporte" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Suporte</a>
+      </div>
+  
+      <a href="https://play.google.com/store/apps/details?id=com.arfelsystems.confereae" target="_blank" rel="noopener"
+        class="bg-primary hover:bg-emerald-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md active:scale-95">
+        Baixar agora
+      </a>
+    </nav>
+  </header>
+
+  <!-- HEADER / HERO -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-soft via-white to-white"></div>
+
+    <section class="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
+      
+      <!-- Texto -->
+      <div class="space-y-8 pt-10">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          Sua compra no controle,<br />
+          <span class="text-primary">do carrinho ao caixa</span>
+        </h1>
+
+        <p class="text-lg text-gray-600 max-w-xl">
+          O Confere Aê é seu assistente inteligente de compras. Acompanhe o total em tempo real, evite surpresas no caixa e economize em cada ida ao mercado.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="https://play.google.com/store/apps/details?id=com.arfelsystems.confereae" target="_blank"
+            rel="noopener" class="bg-primary text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition">
+            Baixar na Play Store
+          </a>
+        </div>
+
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          <span>✔ Grátis</span>
+          <span>✔ Sem cadastro</span>
+          <span>✔ Funciona offline</span>
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="relative">
+        <div class="absolute -inset-6 bg-primary/20 blur-3xl rounded-full"></div>
+        <img src="lista-produtos-com-total.png" alt="Interface do app Confere Aê"
+          class="relative mx-auto w-72 md:w-80 rounded-[32px] shadow-2xl border border-white/40 backdrop-blur" />
+      </div>
+
+    </section>
+  </header>
+
+  <!-- FUNCIONALIDADES -->
+  <section id="funcionalidades" class="max-w-7xl mx-auto px-6 py-24">
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold mb-4">Tudo o que você precisa para comprar melhor</h2>
+      <p class="text-gray-600">
+        Funcionalidades pensadas para quem quer praticidade, controle e economia no supermercado.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Total em tempo real</h3>
+        <p class="text-gray-600">
+          Veja exatamente quanto está gastando enquanto adiciona produtos ao carrinho.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Entrada por voz</h3>
+        <p class="text-gray-600">
+          Adicione produtos falando, sem precisar digitar no meio do corredor.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Promoções com foto</h3>
+        <p class="text-gray-600">
+          Marque ofertas e fotografe a etiqueta para conferência depois.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Histórico de compras</h3>
+        <p class="text-gray-600">
+          Compare preços entre lojas e acompanhe sua evolução de gastos.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Organização por categorias</h3>
+        <p class="text-gray-600">
+          Hortifruti, açougue, higiene e muito mais, tudo separado automaticamente.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition border border-primary/30">
+        <h3 class="font-semibold text-lg mb-2 text-primary">Privacidade total</h3>
+        <p class="text-gray-600">
+          Nenhum cadastro. Nenhum dado na nuvem. Tudo fica somente no seu celular.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="bg-soft py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-16">Como funciona</h2>
+
+      <div class="grid md:grid-cols-3 gap-12 text-center">
+        <div>
+          <div class="text-primary text-4xl font-bold mb-4">1</div>
+          <p>Adicione produtos por texto ou voz</p>
+        </div>
+        <div>
+          <div class="text-primary text-4xl font-bold mb-4">2</div>
+          <p>Acompanhe o total em tempo real</p>
+        </div>
+        <div>
+          <div class="text-primary text-4xl font-bold mb-4">3</div>
+          <p>Finalize sabendo exatamente quanto vai pagar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessão de Suporte / Formulário -->
+  <section id="suporte" class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col md:flex-row">
+        <!-- Info Suporte -->
+        <div class="md:w-2/5 bg-primary p-12 text-white flex flex-col justify-between">
+          <div>
+            <h2 class="text-3xl font-extrabold mb-6">Precisa de ajuda?</h2>
+            <p class="text-emerald-50 mb-8 leading-relaxed">Estamos aqui para ouvir as suas sugestões ou resolver
+              qualquer dúvida sobre o Confere Aê.</p>
+  
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <span class="text-sm font-medium">suporte@confereae.com.br</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </div>
+                <span class="text-sm font-medium">Resposta em até 24h</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="mt-12 pt-8 border-t border-white/10">
+            <p class="text-xs opacity-70">A sua opinião ajuda-nos a tornar o Confere Aê o melhor assistente de compras
+              do mundo.</p>
+          </div>
+        </div>
+  
+        <!-- Formulário -->
+        <div class="md:w-3/5 p-12">
+          <form id="contactForm" action="https://formspree.io/f/xwvvvpvg" method="POST" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Nome
+                  Completo</label>
+                <input type="text" name="name" placeholder="Seu nome" required
+                  class="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl transition-all placeholder:text-slate-300 text-slate-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">E-mail</label>
+                <input type="email" name="email" placeholder="seu@email.com" required
+                  class="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl transition-all placeholder:text-slate-300 text-slate-600">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Assunto</label>
+              <select name="subject"
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl transition-all text-slate-600 appearance-none cursor-pointer">
+                <option>Sugestão de Recurso</option>
+                <option>Dúvida Técnica</option>
+                <option>Reportar Erro</option>
+                <option>Outros</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Mensagem</label>
+              <textarea rows="4" name="message" placeholder="Como podemos ajudar?" required
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl transition-all placeholder:text-slate-300 text-slate-600 resize-none"></textarea>
+            </div>
+
+            <!-- Google reCAPTCHA v2 Widget -->
+            <div class="g-recaptcha" data-sitekey="6Ldc9kwsAAAAABo0NbVSlEQXXCb8yPqMn5ME_N7q"></div>
+
+            <button type="submit" id="submitBtn"
+              class="w-full bg-primary hover:bg-emerald-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 group">
+              Enviar Mensagem
+              <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+            <p id="successMsg" class="text-center text-sm text-primary font-medium hidden">Mensagem enviada com
+              sucesso! Em breve entraremos em contacto.</p>
+            <p id="errorMsg" class="text-center text-sm text-red-500 font-medium hidden">Algo deu errado no envio.
+              Tente novamente.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-5xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold text-center mb-12">Perguntas frequentes</h2>
+
+    <div class="space-y-6">
+      <details class="p-6 rounded-xl bg-white shadow">
+        <summary class="font-medium cursor-pointer">O app funciona offline?</summary>
+        <p class="mt-4 text-gray-600">Sim. Todo o funcionamento ocorre diretamente no seu celular.</p>
+      </details>
+
+      <details class="p-6 rounded-xl bg-white shadow">
+        <summary class="font-medium cursor-pointer">É realmente gratuito?</summary>
+        <p class="mt-4 text-gray-600">Sim. Sem anúncios, sem assinaturas e sem pegadinhas.</p>
+      </details>
+
+      <details class="p-6 rounded-xl bg-white shadow">
+        <summary class="font-medium cursor-pointer">Meus dados são salvos na nuvem?</summary>
+        <p class="mt-4 text-gray-600">Não. O Confere Aê não coleta nem envia dados.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-6 text-sm text-gray-500">
+      <p>© 2026 Confere Aê. Todos os direitos reservados.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-primary">Política de Privacidade</a>
+        <a href="#" class="hover:text-primary">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const reveal = () => {
+      document.querySelectorAll(".reveal").forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    window.onload = reveal;
+
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      successMsg.classList.add('hidden');
+      errorMsg.classList.add('hidden');
+
+      const captchaResponse = grecaptcha.getResponse();
+
+      if (!captchaResponse) {
+        errorMsg.textContent = 'Por favor, confirme que você não é um robô antes de enviar.';
+        errorMsg.classList.remove('hidden');
+        return;
+      }
+
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Enviando...';
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          grecaptcha.reset();
+          successMsg.classList.remove('hidden');
+        } else {
+          errorMsg.textContent = 'Algo deu errado no envio. Tente novamente.';
+          errorMsg.classList.remove('hidden');
+        }
+      } catch (error) {
+        errorMsg.textContent = 'Erro de conexão ao enviar o formulário.';
+        errorMsg.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
+    });
+  </script>
+</body>
+</html>
