@@ -170,15 +170,31 @@
     </header>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      
+
       <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="wallet" class="w-6 h-6"></i>
+        </div>
         <h3 class="font-semibold text-lg mb-2">Total em tempo real</h3>
         <p class="text-gray-600">
           Veja exatamente quanto está gastando enquanto adiciona produtos ao carrinho.
         </p>
       </div>
 
+      <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition border border-primary/30">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="share-2" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2 text-primary">Compartilhamento em tempo real</h3>
+        <p class="text-gray-600">
+          Compartilhe a lista com quem for ao mercado com você. Cada item adicionado ou marcado aparece na hora para os dois.
+        </p>
+      </div>
+
       <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="mic" class="w-6 h-6"></i>
+        </div>
         <h3 class="font-semibold text-lg mb-2">Entrada por voz</h3>
         <p class="text-gray-600">
           Adicione produtos falando, sem precisar digitar no meio do corredor.
@@ -186,6 +202,9 @@
       </div>
 
       <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="camera" class="w-6 h-6"></i>
+        </div>
         <h3 class="font-semibold text-lg mb-2">Promoções com foto</h3>
         <p class="text-gray-600">
           Marque ofertas e fotografe a etiqueta para conferência depois.
@@ -193,13 +212,19 @@
       </div>
 
       <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="history" class="w-6 h-6"></i>
+        </div>
         <h3 class="font-semibold text-lg mb-2">Histórico de compras</h3>
         <p class="text-gray-600">
-          Compare preços entre lojas e acompanhe sua evolução de gastos.
+          Veja todas as compras já finalizadas e reative uma lista antiga com um toque para repetir a compra.
         </p>
       </div>
 
       <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="layout-grid" class="w-6 h-6"></i>
+        </div>
         <h3 class="font-semibold text-lg mb-2">Organização por categorias</h3>
         <p class="text-gray-600">
           Hortifruti, açougue, higiene e muito mais, tudo separado automaticamente.
@@ -207,9 +232,12 @@
       </div>
 
       <div class="p-8 rounded-2xl bg-white shadow hover:shadow-lg transition border border-primary/30">
-        <h3 class="font-semibold text-lg mb-2 text-primary">Privacidade total</h3>
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2 text-primary">Privacidade em primeiro lugar</h3>
         <p class="text-gray-600">
-          Nenhum cadastro. Nenhum dado na nuvem. Tudo fica somente no seu celular.
+          Sem cadastro. Suas listas ficam salvas no seu celular e só vão para a nuvem se você optar por compartilhar uma lista em tempo real.
         </p>
       </div>
 
@@ -333,12 +361,14 @@
 
       <details class="p-6 rounded-xl bg-white shadow">
         <summary class="font-medium cursor-pointer">É realmente gratuito?</summary>
-        <p class="mt-4 text-gray-600">Sim. Sem anúncios, sem assinaturas e sem pegadinhas.</p>
+        <p class="mt-4 text-gray-600">Sim. Sem assinaturas e sem pegadinhas. O app exibe anúncios para se manter
+          gratuito.</p>
       </details>
 
       <details class="p-6 rounded-xl bg-white shadow">
         <summary class="font-medium cursor-pointer">Meus dados são salvos na nuvem?</summary>
-        <p class="mt-4 text-gray-600">Não. O Confere Aê não coleta nem envia dados.</p>
+        <p class="mt-4 text-gray-600">Não, a menos que você compartilhe uma lista em tempo real com outra pessoa.
+          Nesse caso, os itens dessa lista ficam salvos na nuvem enquanto o compartilhamento estiver ativo.</p>
       </details>
     </div>
   </section>
@@ -348,8 +378,8 @@
     <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-6 text-sm text-gray-500">
       <p>© 2026 Confere Aê. Todos os direitos reservados.</p>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-primary">Política de Privacidade</a>
-        <a href="#" class="hover:text-primary">Termos de Uso</a>
+        <a href="/privacidade/" class="hover:text-primary">Política de Privacidade</a>
+        <!-- <a href="#" class="hover:text-primary">Termos de Uso</a> -->
       </div>
     </div>
   </footer>

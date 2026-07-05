@@ -69,7 +69,18 @@
       <strong>Dados inseridos pelo usuário:</strong> nomes de produtos, quantidades, preços,
       marcações de promoções, observações e organização das listas de compras.
       <strong>Esses dados são armazenados exclusivamente no dispositivo do usuário
-        e não são transmitidos para servidores do desenvolvedor.</strong>
+        e não são transmitidos para servidores do desenvolvedor</strong>, exceto quando o usuário opta
+      pelo compartilhamento de lista em tempo real (ver item abaixo).
+    </li>
+    <li>
+      <strong>Compartilhamento de lista em tempo real:</strong> caso o usuário opte por compartilhar uma
+      lista de compras com outra pessoa, os itens dessa lista específica (nome da loja, produtos,
+      quantidades, preços e marcações de promoção) são enviados e armazenados em um
+      <strong>serviço de nuvem</strong> para permitir a sincronização em tempo real entre os participantes,
+      sem necessidade de login e sem coleta de nome, e-mail ou outro dado de identificação pessoal direta.
+      O acesso à lista compartilhada é controlado pela posse
+      do código ou link de compartilhamento: qualquer pessoa que o receba pode visualizar e editar essa
+      lista.
     </li>
     <li>
       <strong>Imagens:</strong> fotos tiradas ou selecionadas pelo usuário para associação a itens da lista,
@@ -114,7 +125,9 @@
   <h2>5. Armazenamento e Segurança</h2>
   <p>
     Os dados das listas de compras e conteúdos inseridos pelo usuário são armazenados
-    <strong>localmente no dispositivo</strong>.
+    <strong>localmente no dispositivo</strong>, exceto os dados de listas que o usuário opte por
+    compartilhar em tempo real, que ficam armazenados em um serviço de nuvem enquanto o
+    compartilhamento estiver ativo, conforme descrito na Seção 2.
   </p>
   <p>
     Informações técnicas e identificadores de publicidade podem ser processados por parceiros de
@@ -131,6 +144,11 @@
     <li>
       <strong>Serviços de publicidade:</strong> o Google AdMob pode receber identificadores de dispositivo
       e informações técnicas para exibição e mensuração de anúncios.
+    </li>
+    <li>
+      <strong>Compartilhamento de lista em tempo real:</strong> quando o usuário ativa essa funcionalidade,
+      os dados da lista compartilhada são armazenados em um serviço de nuvem e ficam acessíveis a qualquer
+      pessoa que possua o código ou link de compartilhamento.
     </li>
     <li>
       <strong>Obrigação legal:</strong> em caso de ordem judicial ou exigência legal.
@@ -158,6 +176,11 @@
       Política de Privacidade de Publicidade do Google
     </a>.
   </p>
+  <p>
+    O aplicativo também utiliza um <strong>serviço de nuvem</strong> para viabilizar o compartilhamento
+    de listas em tempo real, incluindo autenticação anônima e armazenamento temporário dos itens da
+    lista compartilhada.
+  </p>
 
   <h2>9. Controle de Privacidade e Anúncios</h2>
   <p>
@@ -178,6 +201,11 @@
     Os dados permanecem disponíveis enquanto forem necessários para o uso do aplicativo.
     Ao excluir listas ou desinstalar o aplicativo, os dados locais são removidos do dispositivo.
   </p>
+  <p>
+    Os dados de listas compartilhadas em tempo real ficam armazenados no serviço de nuvem enquanto
+    houver atividade na lista, e são <strong>excluídos automaticamente após 90 dias de inatividade</strong>.
+    O usuário também pode sair de uma lista compartilhada a qualquer momento pelo próprio aplicativo.
+  </p>
 
   <h2>12. Crianças e Adolescentes</h2>
   <p>
@@ -191,7 +219,7 @@
     no aplicativo ou em requisitos legais.
   </p>
 
-  <p><em>Última atualização: 25 de janeiro de 2026</em></p>
+  <p><em>Última atualização: 5 de julho de 2026</em></p>
 
   <p class="note">
     Desenvolvido por Arfel Systems — Contato: contato@arfelsystems.com
