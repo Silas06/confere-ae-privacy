@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2310b981%22/><path d=%22M18 24 h9 l3 10%22 stroke=%22white%22 stroke-width=%226%22 fill=%22none%22 stroke-linecap=%22round%22/><polygon points=%2230,34 80,34 72,64 38,64%22 fill=%22white%22/><circle cx=%2244%22 cy=%2282%22 r=%226%22 fill=%22white%22/><circle cx=%2270%22 cy=%2282%22 r=%226%22 fill=%22white%22/></svg>">
+  <link rel="icon" href="/icone.ico" sizes="any">
 
   <title>Confere Aê — Controle total da sua compra no supermercado</title>
   <meta name="description" content="Controle seus gastos em tempo real no supermercado. O Confere Aê mostra o total da compra antes do caixa. Grátis, offline e sem cadastro." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://confereae.com/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Confere Aê — Sua compra no controle" />
   <meta property="og:description" content="Gerencie sua compra no supermercado em tempo real, sem cadastro e sem internet." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://seusite.com/og-image.png" />
+  <meta property="og:url" content="https://confereae.com/" />
+  <meta property="og:site_name" content="Confere Aê" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="https://confereae.com/lista-produtos-com-total.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Confere Aê — Sua compra no controle" />
+  <meta name="twitter:description" content="Gerencie sua compra no supermercado em tempo real, sem cadastro e sem internet." />
+  <meta name="twitter:image" content="https://confereae.com/lista-produtos-com-total.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,6 +103,65 @@
       margin-bottom: 1.5rem;
     }
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Confere Aê",
+    "url": "https://confereae.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Confere Aê",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "ShoppingApplication",
+    "url": "https://confereae.com/",
+    "description": "Controle seus gastos em tempo real no supermercado. O Confere Aê mostra o total da compra antes do caixa. Grátis, offline e sem cadastro.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.arfelsystems.confereae"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O app funciona offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Todo o funcionamento ocorre diretamente no seu celular."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "É realmente gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Sem assinaturas e sem pegadinhas. O app exibe anúncios para se manter gratuito."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Meus dados são salvos na nuvem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não, a menos que você compartilhe uma lista em tempo real com outra pessoa. Nesse caso, os itens dessa lista ficam salvos na nuvem enquanto o compartilhamento estiver ativo."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="bg-white text-gray-800 font-sans">
@@ -121,6 +192,7 @@
     </nav>
   </header>
 
+  <main>
   <!-- HEADER / HERO -->
   <header class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-soft via-white to-white"></div>
@@ -374,6 +446,7 @@
       </details>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="border-t">
