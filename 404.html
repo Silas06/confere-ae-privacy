@@ -47,9 +47,23 @@
   <p>
     Para continuar, instale o aplicativo <strong>Confere Aê</strong> na Play Store.
   </p>
-  <a class="button" href="https://play.google.com/store/apps/details?id=com.arfelsystems.confereae">
+  <a class="button" id="play-store-link" href="https://play.google.com/store/apps/details?id=com.arfelsystems.confereae">
     Baixar na Play Store
   </a>
+  <script>
+    (function () {
+      var match = window.location.pathname.match(/\/join\/([^\/]+)/);
+      var code = match ? decodeURIComponent(match[1]) : null;
+      if (!code) return;
+
+      var params = new URLSearchParams();
+      params.set('id', 'com.arfelsystems.confereae');
+      params.set('referrer', 'join_code=' + code);
+
+      document.getElementById('play-store-link').href =
+        'https://play.google.com/store/apps/details?' + params.toString();
+    })();
+  </script>
 </body>
 
 </html>
